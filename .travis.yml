@@ -5,9 +5,9 @@ dist: trusty
 # Make the gradle wrapper executable
 # before_install: chmod +x gradlew
 before_install:
-  - wget http://services.gradle.org/distributions/gradle-5.3-bin.zip
-  - unzip -qq gradle-5.3-bin.zip
-  - export GRADLE_HOME=$PWD/gradle-5.3
+  - wget https://services.gradle.org/distributions/gradle-6.1.1-all.zip
+  - unzip -qq gradle-6.1.1-all.zip
+  - export GRADLE_HOME=$PWD/gradle-6.1.1
   - export PATH=$GRADLE_HOME/bin:$PATH
   - gradle -v
 
