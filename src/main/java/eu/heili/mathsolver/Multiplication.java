@@ -18,6 +18,9 @@ public class Multiplication extends Operator {
         if(a.evaluate().equals(1.0)) return b;
         if(b.evaluate().equals(1.0)) return a;
 
+        if(a.evaluate().equals(-1.0)) return new Val(-1.0 * b.evaluate());
+        if(b.evaluate().equals(-1.0)) return new Val(-1.0 * a.evaluate());
+
         // if a or b is 0 whole term is 0
         if(a.evaluate().equals(0.0)) return new Val(0.0);
         if(b.evaluate().equals(0.0)) return new Val(0.0);
@@ -32,6 +35,6 @@ public class Multiplication extends Operator {
 
     @Override
     public String toInfixString() {
-        return a.toInfixString() + " * " + b.toInfixString();
+        return " (" +a.toInfixString() + " * " + b.toInfixString()+") ";
     }
 }
