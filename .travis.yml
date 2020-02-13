@@ -3,7 +3,7 @@ jdk: oraclejdk8
 dist: trusty
 
 # Make the gradle wrapper executable
-before_install: chmod +x gradlew
+# before_install: chmod +x gradlew
 
 script:
   - ./gradlew check jacocoTestReport
