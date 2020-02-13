@@ -12,7 +12,7 @@ before_install:
   - gradle -v
 
 script:
-  - ./gradlew check jacocoTestReport
+  - gradle check jacocoTestReport
   # Also upload test coverage to codecov
   - bash <(curl -s https://codecov.io/bash)
 
