@@ -31,6 +31,13 @@ task run (type: JavaExec){
     classpath = sourceSets.main.runtimeClasspath
 }
 
+test {
+    // enable test logging
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
+
 jacocoTestReport {
     reports {
         xml.enabled true
@@ -39,3 +46,4 @@ jacocoTestReport {
 }
 
 check.dependsOn jacocoTestReport
+test.dependsOn cleanTest
