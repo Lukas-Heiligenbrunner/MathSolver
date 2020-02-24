@@ -1,6 +1,6 @@
 package eu.heili.mathsolver
 
-class Subtraction(private val a: Expression, private val b: Expression) : Operator() {
+class Subtraction(private val a: Expression, private val b: Expression) : Operator(a,b) {
     override fun simplify(): Expression {
         // evaluate parents first
         val aa = a.simplify()

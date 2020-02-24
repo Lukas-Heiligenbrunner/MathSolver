@@ -5,6 +5,7 @@ public class Multiplication extends Operator {
     private Expression b;
 
     public Multiplication(Expression a, Expression b) {
+        super(a,b);
         this.a=a;
         this.b=b;
     }
@@ -35,6 +36,6 @@ public class Multiplication extends Operator {
 
     @Override
     public String toInfixString() {
-        return " (" +a.toInfixString() + " * " + b.toInfixString()+") ";
+        return "(" +a.toInfixString() + " * " + b.toInfixString()+")";
     }
 }
