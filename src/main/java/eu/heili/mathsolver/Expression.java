@@ -1,13 +1,26 @@
 package eu.heili.mathsolver;
 
-/**
- * should represent a general expression
- */
-public interface Expression {
-    Expression simplify();
 
-    Double evaluate();
+public abstract class Expression {
+    public abstract Expression simplify();
 
+    public abstract Double evaluate();
 
-    String toInfixString();
+    public abstract String toInfixString();
+
+    public Boolean isZero() {
+        try {
+            return (evaluate() == 0.0);
+        } catch (NullPointerException e) {
+            return false;
+        }
+    }
+
+    public Boolean isOne() {
+        try {
+            return (evaluate() == 1.0);
+        } catch (NullPointerException e) {
+            return false;
+        }
+    }
 }

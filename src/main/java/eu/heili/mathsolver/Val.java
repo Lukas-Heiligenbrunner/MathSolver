@@ -1,9 +1,10 @@
 package eu.heili.mathsolver;
 
-public class Val implements Expression {
+public class Val extends Expression {
     private Double val;
+
     public Val(Double val) {
-        this.val=val;
+        this.val = val;
     }
 
     @Override
