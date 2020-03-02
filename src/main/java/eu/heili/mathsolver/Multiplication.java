@@ -19,6 +19,7 @@ public class Multiplication extends Operator {
         if (a.evaluate().equals(1.0)) return b;
         if (b.evaluate().equals(1.0)) return a;
 
+        // todo right here???  dont calc here?
         if (a.evaluate().equals(-1.0)) return new Val(-1.0 * b.evaluate());
         if (b.evaluate().equals(-1.0)) return new Val(-1.0 * a.evaluate());
 
