@@ -16,16 +16,19 @@ public class Multiplication extends Operator {
         b = b.simplify();
 
         // if a or b is 1 the term can be simplified
-        if (a.evaluate().equals(1.0)) return b;
-        if (b.evaluate().equals(1.0)) return a;
-
-        // todo right here???  dont calc here?
-        if (a.evaluate().equals(-1.0)) return new Val(-1.0 * b.evaluate());
-        if (b.evaluate().equals(-1.0)) return new Val(-1.0 * a.evaluate());
+        if (a.isOne()) return b;
+        if (b.isOne()) return a;
 
         // if a or b is 0 whole term is 0
-        if (a.evaluate().equals(0.0)) return new Val(0.0);
-        if (b.evaluate().equals(0.0)) return new Val(0.0);
+        if (a.isZero()) return new Val(0.0);
+        if (b.isZero()) return new Val(0.0);
+
+        if(a instanceof Multiplication){
+            if(((Multiplication) a).getParent().geta().toInfixString().equals(a.toInfixString())){
+                return(new Multiplication(new Val(a.evaluate() * ((Multiplication) a).getParent().evaluate()), this));
+                // todo s
+            }
+        }
 
         return this;
     }
@@ -38,5 +41,9 @@ public class Multiplication extends Operator {
     @Override
     public String toInfixString() {
         return "(" + a.toInfixString() + " * " + b.toInfixString() + ")";
+    }
+
+    public Operator getParent(){
+        return this;
     }
 }
