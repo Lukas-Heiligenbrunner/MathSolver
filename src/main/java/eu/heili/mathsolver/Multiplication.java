@@ -20,8 +20,7 @@ public class Multiplication extends Operator {
         if (b.isOne()) return a;
 
         // if a or b is 0 whole term is 0
-        if (a.isZero()) return new Val(0.0);
-        if (b.isZero()) return new Val(0.0);
+        if (a.isZero() || b.isZero()) return new Val(0.0);
 
         if(a instanceof Multiplication){
             if(((Multiplication) a).getParent().geta().toInfixString().equals(a.toInfixString())){
