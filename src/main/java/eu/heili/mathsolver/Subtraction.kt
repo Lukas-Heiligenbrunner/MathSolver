@@ -6,8 +6,8 @@ class Subtraction(private val a: Expression, private val b: Expression) : Operat
         val aa = a.simplify()
         val bb = b.simplify()
 
-        if (bb.evaluate() == 0.0) return aa
-        if (aa.evaluate() == 0.0) return Multiplication(Val(-1.0), bb).simplify()
+        if (bb.isZero) return aa
+        if (aa.isZero) return Multiplication(Val(-1.0), bb).simplify()
 
         return this
     }
@@ -17,6 +17,6 @@ class Subtraction(private val a: Expression, private val b: Expression) : Operat
     }
 
     override fun toInfixString(): String {
-        return "(" + a.toInfixString() + " - " + b.toInfixString() + ") "
+        return "(${a.toInfixString()} - ${b.toInfixString()})"
     }
 }

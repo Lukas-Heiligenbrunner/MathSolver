@@ -1,5 +1,3 @@
-import eu.heili.mathsolver.Addition
-import eu.heili.mathsolver.Multiplication
 import eu.heili.mathsolver.Subtraction
 import eu.heili.mathsolver.Val
 import org.junit.Test
@@ -9,6 +7,6 @@ class SimplifyTest {
     @Test
     fun evalSimpleSubtraction(){
         val en = Subtraction(Val(0.0),Val(-1.0)).simplify()
-        assert(en.toInfixString() == "1.0")
+        assert(en.toInfixString() == "(-1.0 * -1.0)")
     }
 }
