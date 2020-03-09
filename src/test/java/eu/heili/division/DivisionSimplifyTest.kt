@@ -28,7 +28,6 @@ class DivisionSimplifyTest {
     @Test
     fun twoVarTest() {
         val en = Subtraction(Var("x"),Var("x")).simplify()
-        println(en.toInfixString())
         assert(en.toInfixString() == "(x - x)")
     }
 }

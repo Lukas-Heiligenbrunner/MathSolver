@@ -34,7 +34,7 @@ public abstract class Expression {
     public Boolean isZero() {
         try {
             return (evaluate() == 0.0);
-        } catch (NullPointerException e) {
+        } catch (EvaluateException e) {
             return false;
         }
     }
@@ -47,7 +47,7 @@ public abstract class Expression {
     public Boolean isOne() {
         try {
             return (evaluate() == 1.0);
-        } catch (NullPointerException e) {
+        } catch (EvaluateException e) {
             return false;
         }
     }

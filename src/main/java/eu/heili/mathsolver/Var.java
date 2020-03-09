@@ -13,14 +13,22 @@ public class Var extends Expression {
         this.varname = varname;
     }
 
+    public void setVal(Double val) {
+        this.val = val;
+    }
+
+    public Double getVal() {
+        return val;
+    }
+
     @Override
     public Expression simplify() {
         return this;
     }
 
     @Override
-    public Double evaluate() throws NullPointerException {
-        if (val == null) throw new NullPointerException("Var is not defined");
+    public Double evaluate() throws EvaluateException {
+        if (val == null) throw new EvaluateException("Var is not defined");
         return val;
     }
 
