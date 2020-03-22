@@ -26,13 +26,4 @@ class subevaltests {
         )
         assert(e.evaluate() == -1.0)
     }
-
-    @Test
-    fun evalSimpleSubtraction(){
-        val en = Sub(
-            Const(0.0),
-            Const(-1.0)
-        ).simplify()
-        assert(en.toInfixString() == "(-1.0 * -1.0)")
-    }
 }

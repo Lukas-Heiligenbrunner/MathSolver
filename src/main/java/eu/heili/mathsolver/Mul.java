@@ -22,13 +22,6 @@ public class Mul extends Operator {
         // if a or b is 0 whole term is 0
         if (a.isZero() || b.isZero()) return new Const(0.0);
 
-        if(a instanceof Mul){
-            if(((Mul) a).getParent().geta().toInfixString().equals(a.toInfixString())){
-                return(new Mul(new Const(a.evaluate() * ((Mul) a).getParent().evaluate()), this));
-                // todo s
-            }
-        }
-
         return this;
     }
 
@@ -40,9 +33,5 @@ public class Mul extends Operator {
     @Override
     public String toInfixString() {
         return "(" + a.toInfixString() + " * " + b.toInfixString() + ")";
-    }
-
-    public Operator getParent(){
-        return this;
     }
 }
