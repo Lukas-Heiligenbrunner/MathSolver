@@ -71,6 +71,6 @@ public abstract class Expr {
      * @return equality
      */
     public boolean equals(Expr e) {
-        return (this == e);
+        return (this.hashCode() == e.hashCode());
     }
 }

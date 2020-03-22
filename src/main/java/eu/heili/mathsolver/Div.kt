@@ -31,7 +31,7 @@ class Div(private val a: Expr, private val b: Expr) : Operator(a, b) {
     }
 
     override fun evaluate(): Double {
-        return a.evaluate() / a.evaluate();
+        return a.evaluate() / b.evaluate();
     }
 
     override fun toInfixString(): String {

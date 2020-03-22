@@ -31,6 +31,30 @@ class SubSimplifyTests {
     }
 
     @Test
+    fun basicTest() {
+        val en = Sub(
+            Const(5.0),
+            Const(3.0)
+        ).simplify()
+        assert(en.toInfixString() == "(5.0 - 3.0)")
+    }
+
+    @Test
+    fun basicMinusTest() {
+        val en = Sub(
+            Const(5.0),
+            Const(-3.0)
+        ).simplify()
+        assert(en.toInfixString() == "(5.0 - -3.0)")
+    }
+
+    @Test
+    fun twoVarTest() {
+        val en = Sub(Var("x"),Var("x"))
+        assert(en.toInfixString() == "(x - x)")
+    }
+
+    @Test
     fun evalSimpleSubtraction() {
         val en = Sub(
             Const(0.0),
