@@ -3,13 +3,13 @@ package eu.heili.mathsolver;
 /**
  * General class should represent a Math expression
  */
-public abstract class Expression {
+public abstract class Expr {
     /**
      * simplify current expression
      *
      * @return itself.
      */
-    public abstract Expression simplify();
+    public abstract Expr simplify();
 
     /**
      * evaluate value of current expression
@@ -50,5 +50,27 @@ public abstract class Expression {
         } catch (EvaluateException e) {
             return false;
         }
+    }
+
+    /**
+     * check if two expressions are the same
+     * (same expression not same object)
+     *
+     * @param e expression to compare with
+     * @return equality
+     */
+    public boolean isEquivto(Expr e) {
+        return (this.toInfixString().equals(e.toInfixString()));
+    }
+
+    /**
+     * check if two expressions are the same
+     * (same expression and same object)
+     *
+     * @param e expression to compare with
+     * @return equality
+     */
+    public boolean equals(Expr e) {
+        return (this == e);
     }
 }

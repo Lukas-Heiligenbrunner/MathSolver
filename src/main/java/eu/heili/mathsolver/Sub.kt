@@ -1,13 +1,16 @@
 package eu.heili.mathsolver
 
-class Subtraction(private val a: Expression, private val b: Expression) : Operator(a, b) {
-    override fun simplify(): Expression {
+class Sub(private val a: Expr, private val b: Expr) : Operator(a, b) {
+    override fun simplify(): Expr {
         // evaluate parents first
         val aa = a.simplify()
         val bb = b.simplify()
 
         if (bb.isZero) return aa
-        if (aa.isZero) return Multiplication(Val(-1.0), bb).simplify()
+        if (aa.isZero) return Mul(Const(-1.0), bb).simplify()
+
+        if(aa.toInfixString() == bb.toInfixString())
+            return Const(0)
 
         return this
     }

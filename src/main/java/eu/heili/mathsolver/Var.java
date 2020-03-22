@@ -1,28 +1,41 @@
 package eu.heili.mathsolver;
 
-public class Var extends Expression {
-    String varname;
-    Double val = null;
+public class Var extends Expr {
+    private String varname;
+    private Double val = null;
 
     public Var(String varname, Double val) {
-        this.varname = varname;
+        this(varname);
         this.val = val;
+    }
+
+    public Var(String varname, int val) {
+        this(varname);
+        this.val = (double) val;
     }
 
     public Var(String varname) {
         this.varname = varname;
     }
 
-    public void setVal(Double val) {
+    public void setValue(Double val) {
         this.val = val;
     }
 
-    public Double getVal() {
+    public void setValue(int val) {
+        this.val = (double) val;
+    }
+
+    public Double getValue() {
         return val;
     }
 
+    public String getName() {
+        return varname;
+    }
+
     @Override
-    public Expression simplify() {
+    public Expr simplify() {
         return this;
     }
 

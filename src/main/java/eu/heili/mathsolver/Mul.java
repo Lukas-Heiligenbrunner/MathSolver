@@ -1,17 +1,17 @@
 package eu.heili.mathsolver;
 
-public class Multiplication extends Operator {
-    private Expression a;
-    private Expression b;
+public class Mul extends Operator {
+    private Expr a;
+    private Expr b;
 
-    public Multiplication(Expression a, Expression b) {
+    public Mul(Expr a, Expr b) {
         super(a, b);
         this.a = a;
         this.b = b;
     }
 
     @Override
-    public Expression simplify() {
+    public Expr simplify() {
         a = a.simplify();
         b = b.simplify();
 
@@ -20,11 +20,11 @@ public class Multiplication extends Operator {
         if (b.isOne()) return a;
 
         // if a or b is 0 whole term is 0
-        if (a.isZero() || b.isZero()) return new Val(0.0);
+        if (a.isZero() || b.isZero()) return new Const(0.0);
 
-        if(a instanceof Multiplication){
-            if(((Multiplication) a).getParent().geta().toInfixString().equals(a.toInfixString())){
-                return(new Multiplication(new Val(a.evaluate() * ((Multiplication) a).getParent().evaluate()), this));
+        if(a instanceof Mul){
+            if(((Mul) a).getParent().geta().toInfixString().equals(a.toInfixString())){
+                return(new Mul(new Const(a.evaluate() * ((Mul) a).getParent().evaluate()), this));
                 // todo s
             }
         }

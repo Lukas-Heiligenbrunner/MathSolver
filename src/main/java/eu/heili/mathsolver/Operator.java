@@ -1,18 +1,18 @@
 package eu.heili.mathsolver;
 
-public abstract class Operator extends Expression {
-    private Expression a, b;
+public abstract class Operator extends Expr {
+    private Expr a, b;
 
-    public Operator(Expression a, Expression b) {
+    public Operator(Expr a, Expr b) {
         this.a = a;
         this.b = b;
     }
 
-    Expression geta() {
+    Expr geta() {
         return a;
     }
 
-    Expression getb() {
+    Expr getb() {
         return b;
     }
 }

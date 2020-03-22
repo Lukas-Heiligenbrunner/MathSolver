@@ -1,14 +1,22 @@
 package eu.heili.mathsolver;
 
-public class Val extends Expression {
+public class Const extends Expr {
     private Double val;
 
-    public Val(Double val) {
+    public Const(Double val) {
         this.val = val;
     }
 
+    /**
+     * second constructor to allow passing integers.
+     * @param val
+     */
+    public Const(int val) {
+        this.val = (double) val;
+    }
+
     @Override
-    public Expression simplify() {
+    public Expr simplify() {
         return this;
     }
 
@@ -20,6 +28,5 @@ public class Val extends Expression {
     @Override
     public String toInfixString() {
         return val.toString();
-        // TODO: 13.02.20  
     }
 }
